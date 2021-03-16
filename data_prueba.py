@@ -15,5 +15,8 @@ def load_data():
 
   for var in ['alcohol', 'magnesium', 'proline']:
     df[var][np.random.choice([True, False], size=df.shape[0], p=[.2,.8])] = np.NaN
+    
+  df.loc[(df.target == 1),'target'] = 0
+  df.loc[(df.target == 2),'target'] = 1
   
   return df
