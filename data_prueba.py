@@ -15,6 +15,11 @@ def load_data():
   for var in ['alcohol', 'magnesium', 'proline']:
     df[var][np.random.choice([True, False], size=df.shape[0], p=[.2,.8])] = np.NaN
     
+  df.loc[df['color_intensity']<=4, 'color_intensity_cat'] = 'little intense'
+  df.loc[((df['color_intensity']>4) & (df['color_intensity']<=8)), 'color_intensity_cat'] = 'medium intensity'
+  df.loc[df['color_intensity']>8, 'color_intensity_cat'] = 'very intense'
+  df.drop('color_intensity', axis=1)  
+    
   df.loc[(df.target == 1),'target'] = 0
   df.loc[(df.target == 2),'target'] = 1
   
