@@ -2,7 +2,6 @@ def load_data():
   import pandas as pd
   import numpy as np
   import warnings
-  import pandas as pd
   from pandas.core.common import SettingWithCopyWarning
 
   warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
