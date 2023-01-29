@@ -22,8 +22,8 @@ def load_data():
     
   df.loc[(df.target == 1),'target'] = 0
   df.loc[(df.target == 2),'target'] = 1
-  
-  idx_tochange = rng.choice(np.argwhere(list(df['target'] == 0)).ravel()
+   
+  idx_tochange = np.random.RandomState(888).choice(np.argwhere(list(df['target'] == 0)).ravel()
                         ,size=10,replace=False)
   df.loc[idx_tochange, 'target'] = 1
   
